@@ -19,10 +19,10 @@ if($_SERVER["REQUEST_METHOD"]=="GET")
 function login(){
 	global $connect;  
 
-	$username=$_GET["username"];
+	$email=$_GET["email"];
 	$password=$_GET["password"];
 
-	$query=" SELECT * FROM user WHERE username='$username' AND password='$password';"; 
+	$query=" SELECT * FROM user WHERE email='$email' AND password='$password';"; 
 	$result=mysqli_query($connect,$query);
 	$number_of_rows=mysqli_num_rows($result);
 	$temp_array=array();
