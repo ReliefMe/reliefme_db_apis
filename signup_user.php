@@ -20,9 +20,9 @@ function login(){
 	$email=$_GET["email"];
 	$password=$_GET["password"];
 	$date_time_of_signup=date("y/m/d h:m:s");
-	$user_token=$username."-".$date_time_of_signup;
 	$name=$_GET["name"];
-	$username= ($name.substr( md5(uniqid($name)),5,5) );			
+	$username= ($name.substr( md5(uniqid($name)),5,5) );	
+	$user_token=$username."-".$date_time_of_signup;		
 	$digits = 5; 
 	$verification_code=mt_rand(pow(10, $digits-1), pow(10, $digits)-1);
 	$contact_number=$_GET["contact_number"];
