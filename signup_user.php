@@ -32,7 +32,7 @@ function login(){
 	
 
 	$query="INSERT INTO user(email,	password,date_time_of_signup,usertoken,login_time,username,name,contact_number,photo_url,user_type,status,gender,verification_code) 
-	VALUES('$email','$password','$date_time_of_signup','$user_token','-','$username',$name,$contact_number,'-',$user_type,0,$gender,$verification_code);"; 
+	VALUES('$email','$password','$date_time_of_signup','$user_token','-','$username','$name',$contact_number,'-',$user_type,0,$gender,$verification_code);"; 
 	//$result=mysqli_query($connect,$query);
 	if(mysqli_query($connect,$query)){
 	//send email
