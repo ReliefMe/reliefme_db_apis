@@ -1,10 +1,10 @@
 <?php
 
-if($_SERVER["REQUEST_METHOD"]=="GET")
+if($_SERVER["REQUEST_METHOD"]=="POST")
 {
 	$api_key="t1";
-	if(isset($_GET["api_key"])){
-		if($_GET["api_key"]==$api_key){
+	if(isset($_POST["api_key"])){
+		if($_POST["api_key"]==$api_key){
 			require "connect.php"; 
 	    	upload_ques();
     	}else{
@@ -22,7 +22,7 @@ function upload_ques(){
     $image=$_POST["image_url"];
     $upvote=0;
     $downvote=0;
-    $upload_date=date("YYYY-MM-DD HH:mm:ss");
+    $upload_date=date("y/m/d h:m:s");
     
    
 
