@@ -1,6 +1,6 @@
 <?php
 
-if($_SERVER["REQUEST_METHOD"]=="GET")
+if($_SERVER["REQUEST_METHOD"]=="POST")
 {
 	$api_key="t1";
 	if(isset($_POST["api_key"])){
