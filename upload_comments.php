@@ -3,8 +3,8 @@
 if($_SERVER["REQUEST_METHOD"]=="GET")
 {
 	$api_key="t1";
-	if(isset($_GET["api_key"])){
-		if($_GET["api_key"]==$api_key){
+	if(isset($_POST["api_key"])){
+		if($_POST["api_key"]==$api_key){
 			require "connect.php"; 
 	    	upload_comments();
     	}else{
@@ -23,27 +23,17 @@ function upload_comments(){
     $attached_pic=$_POST["image_url"];
     $upvote=0;
     $downvote=0;
-    $c_date=date("YYYY-MM-DD HH:mm:ss");
-    
-
-    
-
-	$query=" INSERT INTO comment ( userId,question_id,comment_text,c_upvote,c_downvote,attached_pic,c_date ) 
-    VALUES($userid,'$question_id','$comment_text',$upvote,$downvote,'$attached_pic','$c_date');"; 
-	//$result=mysqli_query($connect,$query);
+    $c_date=date("y/m/d h:m:s");
+    $query="INSERT INTO comment(userId,question_id,comment_text,c_upvote,c_downvote,attached_pic,c_date )  
+	VALUES($userid,'$question_id','$comment_text',$upvote,$downvote,'$attached_pic','$c_date');"; 
+	 
     if(mysqli_query($connect,$query)){
         echo "1";
     }else{
         echo mysqli_error($connect);
     }
 
-	// $number_of_rows=mysqli_num_rows($result);
-	// $temp_array=array();
-	// if($number_of_rows>0){
-	// 	while($row=mysqli_fetch_assoc($result)){
-	// 		$temp_array[]=$row;
-	// 		}
-	// 	} 
+	 
 	mysqli_close($connect);		 
 }
 ?>
